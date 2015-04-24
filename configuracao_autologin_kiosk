@@ -1,0 +1,43 @@
+###
+# CONFIGURANDO AUTO LOGIN E START APP
+# UM SISTEMA KIOSK BASICO
+###
+
+
+
+### (1)
+# Editar o /etc/inittab
+# sudo nano /etc/inittab
+# Encontre e comente a linha com 1:2345:respawn:/sbin/getty 115200 tty1
+# Coloque a abaixo no lugar:
+1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
+
+
+# Com isso a Raspberry PI já vai bootar e logar automaticamente
+# Porem agora precisamos subir a interface grafica (ServerX) e iniciar nosso navegador
+
+
+
+### (2)
+# Edite o arquivo /etc/rc.local
+# sudo nano /etc/rc.local e adicione o script abaixo
+# Adicione no final antes do exit 0, este script vai subir a interface grafica
+/home/pi/flisol/Praticas/Shell/Kiosk/startx.sh
+
+
+
+### (3)
+# E adicione no crontab a seguinte linha:
+# crontab -e
+# E adicione a linha abaixo:
+*/1 * * * * 	/home/pi/flisol/Praticas/Shell/Kiosk/startkiosk.sh
+
+# O script acima vai iniciar o navegador automaticamente, porem ele verifica se ja nao possui uma instancia
+# em execucao e faz isso de 1 em 1 minuto garantindo que a aplicação estara rodando
+
+
+
+### (4)
+# O Primeiro ira iniciar o ServerX e o segundo iniciar o navegador em modo full-screen
+# Para o segundo script startkiosk.sh existe a dependencia de instalar os pacotes:
+xdotool e unclutter

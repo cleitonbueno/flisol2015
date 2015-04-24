@@ -1,0 +1,42 @@
+###
+# Device::BCM2835
+# Site: http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Device-BCM2835-1.9.tar.gz
+###
+
+
+
+# Baixando
+pi@raspberrypi ~/flisol $ wget http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Device-BCM2835-1.9.tar.gz
+
+
+# Descompactando
+pi@raspberrypi ~/flisol $ tar -xvzf Device-BCM2835-1.9.tar.gz 
+Device-BCM2835-1.9/
+Device-BCM2835-1.9/fallback/
+Device-BCM2835-1.9/fallback/const-c.inc
+Device-BCM2835-1.9/fallback/const-xs.inc
+Device-BCM2835-1.9/ppport.h
+Device-BCM2835-1.9/typemap
+Device-BCM2835-1.9/README
+Device-BCM2835-1.9/Changes
+Device-BCM2835-1.9/lib/
+Device-BCM2835-1.9/lib/Device/
+Device-BCM2835-1.9/lib/Device/BCM2835.pm
+Device-BCM2835-1.9/META.yml
+Device-BCM2835-1.9/BCM2835.xs
+Device-BCM2835-1.9/t/
+Device-BCM2835-1.9/t/Device-BCM2835.t
+Device-BCM2835-1.9/MANIFEST
+Device-BCM2835-1.9/META.json
+Device-BCM2835-1.9/Makefile.PL
+
+
+# Instalando
+pi@raspberrypi ~/flisol/Device-BCM2835-1.9 $ perl Makefile.PL 
+Checking if your kit is complete...
+Looks good
+Note (probably harmless): No library found for -lbcm2835
+Writing Makefile for Device::BCM2835
+Writing MYMETA.yml
+
+

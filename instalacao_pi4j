@@ -1,0 +1,61 @@
+###
+# PI4J
+# Site: http://www.pi4j.com
+###
+
+
+# Dependencias
+Biblioteca WiringPi
+Java Runtime (JRE/JDK)
+
+
+# Baixando
+pi@raspberrypi ~/flisol/ $ wget http://get.pi4j.com/download/pi4j-1.0.deb
+
+
+# Instalando
+pi@raspberrypi ~/flisol $ sudo dpkg -i pi4j-1.0.deb 
+A seleccionar pacote anteriormente n�o seleccionado pi4j.
+(Lendo banco de dados ... 80438 ficheiros e direct�rios actualmente instalados.)
+Desempacotando pi4j (de pi4j-1.0.deb) ...
+Configurando pi4j (1.0) ...
+
+
+# Diretorio Instalação
+/opt/pi4j/
+
+
+# Exemplos
+/opt/pi4j/examples/
+
+
+# Compilar todos os exemplos
+pi@raspberrypi /opt/pi4j/examples $ ./build 
+---------------------------------------------------------
+[01 of 34] ... compiling : BlinkGpioExample.java
+[02 of 34] ... compiling : BlinkTriggerGpioExample.java
+[03 of 34] ... compiling : ComputeModuleGpioExample.java
+[04 of 34] ... compiling : ControlGpioExample.java
+...
+[30 of 34] ... compiling : WiringPiGpioInterruptExample.java
+[31 of 34] ... compiling : WiringPiGpioInterruptExample2.java
+[32 of 34] ... compiling : WiringPiSerialExample.java
+[33 of 34] ... compiling : WiringPiSoftPWMExample.java
+[34 of 34] ... compiling : WiringPiSPIExample.java
+---------------------------------------------------------
+The following command syntax can be used to execute the sample projects:
+  sudo java -classpath .:classes:/opt/pi4j/lib/'*' BlinkGpioExample
+---------------------------------------------------------
+
+
+# Modificar e compilar um exemplo ou arquivo
+# Compilando
+pi4j -c Gpio00.java
+ou
+javac -classpath .:classes:/opt/pi4j/lib/'*' -d . gpio00.java
+
+# Executando
+pi4j -r Gpio00
+ou
+sudo java -classpath .:classes:/opt/pi4j/lib/'*' gpio00
+
