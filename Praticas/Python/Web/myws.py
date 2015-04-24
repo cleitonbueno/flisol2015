@@ -7,6 +7,13 @@ from mimetypes import types_map
 import urlparse
 
 
+"""
+    Simples WebServer basico com Python 
+    Autor:  Cleiton Bueno
+    FLISOL 2015 - Raspberry PI
+
+"""
+
 
 class HandlerWS( BaseHTTPServer.BaseHTTPRequestHandler ):
 	server_version= "HandlerWSFLISOL2015/1.1"
@@ -18,8 +25,6 @@ class HandlerWS( BaseHTTPServer.BaseHTTPRequestHandler ):
 		try:
 			parsed_path = urlparse.urlparse(self.path)
 			self.send_response(200)
-			#self.end_headers()
-			#self.wfile.write(message)
 			
 
 
