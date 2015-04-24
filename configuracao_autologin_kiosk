@@ -41,3 +41,6 @@
 # O Primeiro ira iniciar o ServerX e o segundo iniciar o navegador em modo full-screen
 # Para o segundo script startkiosk.sh existe a dependencia de instalar os pacotes:
 xdotool e unclutter
+
+#xdotool: Enviar combinação de teclas ou atalhos a janela ativa
+#unclutter: Remove o curso da tela
