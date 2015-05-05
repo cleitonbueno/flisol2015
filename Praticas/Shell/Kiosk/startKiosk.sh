@@ -25,6 +25,13 @@ if [ ! -z ${PID_KIOSK} ]; then
 	exit 0
 fi
 
+
+# Desabilitando screensaver, Energy Star e Video Device Blank
+xset s off 
+xset -dpms
+xset s noblank
+
+
 /bin/echo "Epiphany nao esta rodando" >> /tmp/kiosk.log
 
 if [ ! -x /usr/bin/xdotool ]; then
@@ -38,18 +45,19 @@ if [ ! -x /usr/bin/unclutter ]; then
 	exit 1
 fi
 
-
-/usr/bin/epiphany-browser --display=:0 http://www.cleitonbueno.com
-
-
+/usr/bin/epiphany-browser --display=:0 http://www.cleitonbueno.com &
 /bin/echo "Iniciando Epiphany, aguarde..." >> /tmp/kiosk.log
 
-sleep 5
 
-
-# Enviando F11 para o Epiphany
-/usr/bin/xdotool key F11
+sleep 10
 
 
 # Removendo o cursor da tela
 /usr/bin/unclutter -display :0 -noevents -grab &
+/bin/echo "Removendo curso da tela" >> /tmp/kiosk.log
+
+
+# Enviando F11 para o Epiphany
+PID_KIOSK=$(pidof epiphany-browser)
+xdotool key F11 --pid ${PID_KIOSK}
+/bin/echo "Espandindo o navegador FullScreen [${PID_KIOSK}]" >> /tmp/kiosk.log
