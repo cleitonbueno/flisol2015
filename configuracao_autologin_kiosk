@@ -1,6 +1,10 @@
 ###
 # CONFIGURANDO AUTO LOGIN E START APP
 # UM SISTEMA KIOSK BASICO
+#
+# Autor:    Cleiton Bueno
+# E-mail:   cleitonrbueno@gmail.com
+# Blog:     http://www.cleitonbueno.com
 ###
 
 
@@ -22,7 +26,7 @@
 # Edite o arquivo /etc/rc.local
 # sudo nano /etc/rc.local e adicione o script abaixo
 # Adicione no final antes do exit 0, este script vai subir a interface grafica
-/home/pi/flisol/Praticas/Shell/Kiosk/startx.sh
+/home/pi/flisol/Praticas/Shell/Kiosk/startX.sh
 
 
 
@@ -30,7 +34,7 @@
 # E adicione no crontab a seguinte linha:
 # crontab -e
 # E adicione a linha abaixo:
-*/1 * * * * 	/home/pi/flisol/Praticas/Shell/Kiosk/startkiosk.sh
+*/1 * * * * 	/home/pi/flisol/Praticas/Shell/Kiosk/startKiosk.sh
 
 # O script acima vai iniciar o navegador automaticamente, porem ele verifica se ja nao possui uma instancia
 # em execucao e faz isso de 1 em 1 minuto garantindo que a aplicação estara rodando
@@ -44,3 +48,18 @@ xdotool e unclutter
 
 #xdotool: Enviar combinação de teclas ou atalhos a janela ativa ou PID
 #unclutter: Remove o curso da tela
+
+
+
+### (5)
+# Script para reproduzir video sem servidor X sendo executado.
+# Ira reproduzir os videos que estiver no diretorio /home/pi/videos
+# pode alterar o caminho abrindo o script e modificando o valor da variavel PATH_VIDEOS 
+Praticas/Shell/Kiosk/startPlayer.sh
+
+
+
+### (6)
+# Script para SlideShow, procura por imagens dentro do diretorio /home/pi/images
+# pode alterar o caminho abrindo o script e modificando o caminho da variavel PATH_IMAGES
+Praticas/Shell/Kiosk/startSlideShow.sh
